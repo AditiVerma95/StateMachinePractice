@@ -401,7 +401,7 @@ Transform:
   m_GameObject: {fileID: 1212337255}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 515.64343, y: 294.18695, z: -3.0779743}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -686,7 +686,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2109926654}
-  - component: {fileID: 2109926653}
+  - component: {fileID: 2109926655}
   m_Layer: 0
   m_Name: CardSpawner
   m_TagString: Untagged
@@ -694,22 +694,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2109926653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2109926652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10a304588922930499f0edf057c567ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardParent: {fileID: 879227386}
-  cardPrefab: {fileID: 5860063202045496357, guid: 7c47895f567b3e046bcdbc0096d62a36, type: 3}
-  backSpritesDb: {fileID: 11400000, guid: 12f0f28410d2e3a41ab5b58ddb585b5e, type: 2}
-  frontSpritesDb: {fileID: 11400000, guid: 25f1ddafe14a8f54da6e5e4f26cc1b5e, type: 2}
 --- !u!4 &2109926654
 Transform:
   m_ObjectHideFlags: 0
@@ -719,12 +703,28 @@ Transform:
   m_GameObject: {fileID: 2109926652}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 380, y: 213.625, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2109926655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109926652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2ff9d7478876942b250b6dfdbbcff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardParent: {fileID: 879227386}
+  cardPrefab: {fileID: 5860063202045496357, guid: 7c47895f567b3e046bcdbc0096d62a36, type: 3}
+  backSpritesDb: {fileID: 11400000, guid: 12f0f28410d2e3a41ab5b58ddb585b5e, type: 2}
+  frontSpritesDb: {fileID: 11400000, guid: 25f1ddafe14a8f54da6e5e4f26cc1b5e, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

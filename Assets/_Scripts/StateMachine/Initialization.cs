@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 
-public class CardSpawner : MonoBehaviour
+public class Initialization : MonoBehaviour
 {
     [SerializeField] private Transform cardParent;
     [SerializeField] private GameObject cardPrefab;
@@ -14,7 +14,7 @@ public class CardSpawner : MonoBehaviour
 
     private void Start()
     {
-        SpawnCardDeck();
+
     }
 
     public void SpawnCardDeck()
@@ -33,6 +33,7 @@ public class CardSpawner : MonoBehaviour
 
             // Spawn the card
             GameObject spawnedCard = Instantiate(cardPrefab, cardParent.transform);
+            spawnedCard.name = suit + "_" + (Rank)rankIndex;
 
             // Get card data
             CardData spawnedCardData = spawnedCard.GetComponent<CardData>();
