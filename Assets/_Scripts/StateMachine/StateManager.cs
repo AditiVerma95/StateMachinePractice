@@ -6,6 +6,7 @@ public class StateManager : MonoBehaviour
   [SerializeField] private Initialization initialization;
   public static StateManager Instance;
   public GameState currentState;
+  public GameState dealingState;
   private void Awake()
   {
     Instance = this;
@@ -27,7 +28,10 @@ public class StateManager : MonoBehaviour
     switch (currentState)
     {
       case GameState.Initialization:
-        initialization.SpawnCardDeck();
+        initialization.StartInitialization();
+        break;
+      case GameState.Dealing:
+        initialization.StartInitialization();
         break;
     }
   }

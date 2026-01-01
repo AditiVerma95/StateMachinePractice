@@ -17,12 +17,17 @@ public class Initialization : MonoBehaviour
 
     }
 
-    public void SpawnCardDeck()
+    public void StartInitialization()
     {
         SpawnSuit(Suit.Spade, frontSpritesDb.FrontSprites[0].Spade, backSpritesDb.BackSprites[0]);
         SpawnSuit(Suit.Diamond, frontSpritesDb.FrontSprites[0].Diamond, backSpritesDb.BackSprites[0]);
         SpawnSuit(Suit.Heart, frontSpritesDb.FrontSprites[0].Hearts, backSpritesDb.BackSprites[0]);
         SpawnSuit(Suit.Clubs, frontSpritesDb.FrontSprites[0].Clubs, backSpritesDb.BackSprites[0]);
+        EndInitialization();
+    }
+    public void EndInitialization()
+    {
+        StateManager.Instance.ChangeState(GameState.Dealing);
     }
 
     private void SpawnSuit(Suit suit, List<Sprite> frontSpriteList, Sprite backSprite)
