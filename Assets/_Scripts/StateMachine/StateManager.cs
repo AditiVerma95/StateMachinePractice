@@ -1,12 +1,15 @@
 using UnityEngine;
 
-public class StateManager : MonoBehaviour {
-    [Header("StateHandlers")]
+public class StateManager : MonoBehaviour
+{
+    [Header("State Handlers")]
     [SerializeField] private Initialization initialization;
+    [SerializeField] private Dealing dealing;
+
     public static StateManager Instance;
     private GameState currentState;
 
-    private void Awake() 
+    private void Awake()
     {
         Instance = this;
     }
@@ -23,14 +26,16 @@ public class StateManager : MonoBehaviour {
         SetCurrentState();
     }
 
-    public void SetCurrentState()
+    private void SetCurrentState()
     {
         switch (currentState)
         {
             case GameState.Initialization:
                 initialization.StartInitialization();
                 break;
+
             case GameState.Dealing:
+                dealing.StartDealing();
                 break;
         }
     }

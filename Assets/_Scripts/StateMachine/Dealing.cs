@@ -1,21 +1,38 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Dealing : MonoBehaviour
 {
     [SerializeField] private RectTransform left;
     [SerializeField] private RectTransform right;
-    private void StartDealing()
+
+    private List<CardData> globalCards;
+
+    public void StartDealing()
     {
-        Vector2 leftPos = UniversalPositionsOfObjects.Instance.GetPositionFromCanvasCenter(left);
-        Vector2 rightPos = UniversalPositionsOfObjects.Instance.GetPositionFromCanvasCenter(right);
+        globalCards = CardsManager.Instance.globalCards;
+
+        Vector2 leftPos =
+            UniversalPositionsOfObjects.Instance.GetPositionFromCanvasCenter(left);
+        Vector2 rightPos =
+            UniversalPositionsOfObjects.Instance.GetPositionFromCanvasCenter(right);
+
         float distance = Vector2.Distance(leftPos, rightPos);
-        Debug.Log(distance);
-        float offset = distance / 12;
-        
+        float offset = distance / 12f;
+
+        for (int i = 0; i < 13; i++)
+        {
+            CardData card = globalCards[i];
+            RectTransform cardRect = card.GetComponent<RectTransform>();
+
+            Vector2 targetPos = leftPos;
+            targetPos.x += offset * i;
+
+            cardRect.anchoredPosition = targetPos;
+        }
     }
-    private void EndDealing()
+
+    public void EndDealing()
     {
-
     }
-
 }

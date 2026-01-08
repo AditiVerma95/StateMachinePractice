@@ -513,6 +513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialization: {fileID: 2109926655}
+  dealing: {fileID: 989548301}
 --- !u!4 &921607538
 Transform:
   m_ObjectHideFlags: 0

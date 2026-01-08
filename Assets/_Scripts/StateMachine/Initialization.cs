@@ -29,33 +29,25 @@ public class Initialization : MonoBehaviour
         StateManager.Instance.ChangeState(GameState.Dealing);
     }
 
-    private void SpawnSuit(Suit suit, List<Sprite> frontSpriteList, Sprite backSprite)
+    private void SpawnSuit(Suit suit,List<Sprite> frontSpriteList,Sprite backSprite)
     {
         for (int i = 0; i < 13; i++)
         {
-            int rankIndex = i;
+            Rank rank = (Rank)i;
 
-            // Spawn the card
-            GameObject spawnedCard = Instantiate(cardPrefab, cardParent.transform);
-            spawnedCard.name = suit + "_" + (Rank)rankIndex;
+            GameObject spawnedCard = Instantiate(cardPrefab, cardParent);
 
-            // Get card data
-            CardData spawnedCardData = spawnedCard.GetComponent<CardData>();
+            spawnedCard.name = $"{suit}_{rank}";
 
-            // Set card rank
-            spawnedCardData.rank = (Rank)rankIndex;
+            CardData cardData = spawnedCard.GetComponent<CardData>();
 
-            // Set card suit
-            spawnedCardData.suit = suit;
+            cardData.rank = rank;
+            cardData.suit = suit;
+            cardData.frontSprite = frontSpriteList[i];
+            cardData.backSprite = backSprite;
 
-            // Set front sprite
-            spawnedCardData.frontSprite = frontSpriteList[rankIndex];
-
-            // Set back sprite
-            spawnedCardData.backSprite = backSprite;
-
-            // Add card to global list
-            CardsManager.Instance.globalCards.Add(spawnedCardData);
+            CardsManager.Instance.globalCards.Add(cardData);
         }
     }
+
 }
